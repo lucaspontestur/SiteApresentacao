@@ -27,7 +27,7 @@ Estrutura de diretórios:
     + assets              # Recursos estáticos da aplicação
         - react.svg       # Logo do React
     + components          # Componentes React reutilizáveis
-        - PontesTurSite.jsx  # Componente principal do site da PontesTur
+        - LucasMarinho.jsx  # Componente principal do site da PontesTur
         + ui               # Componentes de interface do usuário
             - card.tsx    # Componente de card do shadcn/ui
     - index.css          # Estilos globais da aplicação

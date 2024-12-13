@@ -1,8 +1,8 @@
-import PontesTurSite from './components/PontesTurSite'
+import LucasMarinho from './components/LucasMarinho'
 
 function App() {
   return (
-    <PontesTurSite />
+    <LucasMarinho />
   )
 }
 
