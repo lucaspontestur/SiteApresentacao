@@ -80,7 +80,7 @@ const LucasMarinho = () => {
         <nav className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-              Lucas Marinho
+              Lucas Marinho Rodrigues
             </h1>
             <div className="hidden md:flex gap-6">
               {navItems.map(({ key, label, icon: Icon }) => (
@@ -114,12 +114,13 @@ const LucasMarinho = () => {
             Desenvolvedor Full Stack
           </h1>
           <div className="max-w-3xl mx-auto mb-8">
-            <p className="text-xl text-gray-600 mb-6">
-              Desenvolvedor Full Stack com 2 anos de experiência, especializado em criar soluções web modernas e inovadoras usando React, Python e Golang.
-            </p>
-            <p className="text-lg text-gray-600 mb-8">
-              Combinando criatividade técnica com pensamento estratégico para desenvolver aplicações web de alta performance e experiências de usuário excepcionais.
-            </p>
+          <p className="text-xl text-gray-600 mb-6">
+          Olá, tudo bem? Seja bem-vindo ao meu site de portfólio.
+        </p>
+        <p className="text-lg text-gray-600 mb-8">
+          Meu nome é Lucas Marinho Rodrigues, sou Desenvolvedor Full Stack e este site foi criado por mim, utilizando as melhores práticas de desenvolvimento e tecnologias modernas como ReactJS. Aqui você poderá conhecer mais sobre minha experiência, projetos e habilidades técnicas.
+        </p>
+
           </div>
           <div className="flex justify-center gap-4">
             {[
@@ -198,22 +199,22 @@ const LucasMarinho = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: 'Automações',
-                description: 'Sistemas de automação usando Python e APIs',
-                tech: ['Python', 'APIs', 'Webhook'],
-                icon: Rocket
+                title: 'Backend',
+                description: 'Desenvolvimento de automações, integrações com APIs e Bancos de Dados',
+                tech: ['Python', "Node.js", "APIs", "SQL", 'Webhook', 'Selenium'],
+                icon: Database
               },
               {
-                title: 'Desenvolvimento de Chatbots',
-                description: 'Chatbots inteligentes para atendimento',
-                tech: ['DialogFlow', 'JavaScript', 'APIs'],
+                title: 'Inteligência Artificial',
+                description: 'Estudo e desenvolvimento de inteligência artificial e Chatbots para atendimento',
+                tech: ['DialogFlow', 'APIs', 'Gemini'],
                 icon: Brain
               },
               {
-                title: 'Game Development',
-                description: 'Desenvolvimento de jogos e narrativas',
-                tech: ['GameMaker', 'ActionScript'],
-                icon: Gamepad
+                title: 'Frontend',
+                description: 'Desenvolvimento de interfaces modernas e responsivas',
+                tech: ['Javascript', 'React', 'Vue.js', 'HTML e Css', 'Typescript'],
+                icon: Code
               }
             ].map((project, index) => (
               <Card
@@ -258,7 +259,7 @@ const LucasMarinho = () => {
                 role: "Estagiário em Inovação",
                 period: "2024",
                 description: "Desenvolvimento de soluções inovadoras usando Python e automações",
-                tech: ["Python", "APIs", "Webhook"]
+                tech: ["Python", "APIs", "Webhook", "SQL Server"]
               },
               {
                 company: "Encora",
@@ -272,7 +273,7 @@ const LucasMarinho = () => {
                 role: "Freelancer",
                 period: "2018 - 2019",
                 description: "Desenvolvimento de chatbots inteligentes para atendimento",
-                tech: ["DialogFlow", "JavaScript"]
+                tech: ["DialogFlow", "IA"]
               }
             ].map((job, index) => (
               <Card
@@ -445,6 +446,7 @@ const LucasMarinho = () => {
               </Card>
             </div>
 
+            {/*
             <Card className="hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <form className="space-y-6">
@@ -492,6 +494,8 @@ const LucasMarinho = () => {
                 </form>
               </CardContent>
             </Card>
+            */}
+
           </div>
         </div>
       </section>
@@ -501,9 +505,9 @@ const LucasMarinho = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Lucas Marinho</h3>
+              <h3 className="text-2xl font-bold mb-4">Lucas Marinho Rodrigues</h3>
               <p className="text-gray-400">
-                Desenvolvedor Full Stack com paixão por inovação e tecnologia
+                Desenvolvedor Full Stack.
               </p>
             </div>
             <div>
@@ -529,7 +533,7 @@ const LucasMarinho = () => {
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
             <p className="text-gray-400">
-              © {new Date().getFullYear()} Lucas Marinho. Todos os direitos reservados.
+              Feito por Lucas Marinho Rodrigues
             </p>
           </div>
         </div>
