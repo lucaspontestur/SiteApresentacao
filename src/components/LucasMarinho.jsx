@@ -45,9 +45,9 @@ const LucasMarinho = () => {
   };
 
   const navItems = [
-    { key: 'about', label: 'Sobre', icon: Brain },
+    { key: 'hero', label: 'Sobre mim', icon: Brain },
     { key: 'stack', label: 'Stack', icon: Terminal },
-    { key: 'projects', label: 'Projetos', icon: Rocket },
+    { key: 'projects', label: 'Qualificações', icon: Rocket },
     { key: 'experience', label: 'Experiência', icon: Briefcase },
     { key: 'education', label: 'Formação', icon: GraduationCap },
     { key: 'contact', label: 'Contato', icon: Mail }
@@ -118,7 +118,7 @@ const LucasMarinho = () => {
           Olá, tudo bem? Seja bem-vindo ao meu site de portfólio.
         </p>
         <p className="text-lg text-gray-600 mb-8">
-          Meu nome é Lucas Marinho Rodrigues, sou Desenvolvedor Full Stack e este site foi criado por mim, utilizando as melhores práticas de desenvolvimento e tecnologias modernas como ReactJS. Aqui você poderá conhecer mais sobre minha experiência, projetos e habilidades técnicas.
+          Meu nome é Lucas Marinho Rodrigues, sou Desenvolvedor Full Stack e este site foi criado por mim, utilizando ReactJS. Aqui você poderá conhecer mais sobre minha experiência, Qualificações e habilidades técnicas.
         </p>
 
           </div>
@@ -194,7 +194,7 @@ const LucasMarinho = () => {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-            Projetos em Destaque
+            Qualificações em Destaque
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
