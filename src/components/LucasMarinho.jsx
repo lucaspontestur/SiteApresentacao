@@ -8,20 +8,18 @@ import { Card, CardContent } from "./ui/card";
 
 const LucasMarinho = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-
-useEffect(() => {
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 50);
-  };
-  window.addEventListener('scroll', handleScroll);
-  return () => window.removeEventListener('scroll', handleScroll);
-}, []);
   const [activeTab, setActiveTab] = useState('about');
-  const [isVisible, setIsVisible] = useState({});
   const [hoveredCard, setHoveredCard] = useState(null);
   const [activeStack, setActiveStack] = useState('front');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
-  // Dentro do componente
   const heroRef = useRef(null);
   const aboutRef = useRef(null);
   const stackRef = useRef(null);
@@ -40,27 +38,6 @@ useEffect(() => {
     contact: contactRef
   }), []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          setIsVisible(prev => ({
-            ...prev,
-            [entry.target.id]: entry.isIntersecting
-          }));
-        });
-      },
-      { threshold: 0.1 }
-    );
-  
-    Object.values(sectionRefs).forEach(ref => {
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
-    });
-  
-    return () => observer.disconnect();
-  }, [sectionRefs]);
 
   const scrollToSection = (key) => {
     sectionRefs[key].current?.scrollIntoView({ behavior: 'smooth' });
@@ -122,25 +99,28 @@ useEffect(() => {
             </div>
           </div>
         </nav>
-      </header>
-
+      </header>                          
       {/* Hero */}
       <section 
-        ref={sectionRefs.hero} 
-        className="h-screen flex items-center justify-center pt-20"
+        ref={sectionRefs.hero}
+        id="hero"
+        className="min-h-screen flex flex-col items-center justify-center pt-20 px-4"
         style={{
           background: 'radial-gradient(circle at center, rgba(99,102,241,0.1) 0%, rgba(0,0,0,0) 70%)'
         }}
       >
-        <div className={`text-center transition-all duration-1000 ${
-          isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+        <div className="text-center">
           <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-transparent bg-clip-text">
             Desenvolvedor Full Stack
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            Transformando ideias em soluções inovadoras através do código
-          </p>
+          <div className="max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-600 mb-6">
+              Desenvolvedor Full Stack com 2 anos de experiência, especializado em criar soluções web modernas e inovadoras usando React, Python e Golang.
+            </p>
+            <p className="text-lg text-gray-600 mb-8">
+              Combinando criatividade técnica com pensamento estratégico para desenvolver aplicações web de alta performance e experiências de usuário excepcionais.
+            </p>
+          </div>
           <div className="flex justify-center gap-4">
             {[
               { icon: Github, link: 'https://github.com/lucas3034', label: 'GitHub' },
@@ -218,7 +198,7 @@ useEffect(() => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: 'Automações PontesTur',
+                title: 'Automações',
                 description: 'Sistemas de automação usando Python e APIs',
                 tech: ['Python', 'APIs', 'Webhook'],
                 icon: Rocket
@@ -340,7 +320,7 @@ useEffect(() => {
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div>
-                    <GraduationCap className="w-12 h-12 text-indigo-600" />
+                  <GraduationCap className="w-12 h-12 text-indigo-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold">Ciências da Computação</h3>
@@ -558,4 +538,4 @@ useEffect(() => {
   );
 };
 
-export default LucasMarinho;
+export default LucasMarinho;  
