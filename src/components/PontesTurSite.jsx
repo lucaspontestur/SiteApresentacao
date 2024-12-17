@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Award, Star, MapPin, Phone, Mail, Calendar } from 'lucide-react';
 import ContactForm from './ui/ContactForm';
-import { Card, CardContent } from "./ui/card";
+import { Card, CardContent } from './ui/card';
 const PontesTurSite = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -10,7 +10,6 @@ const PontesTurSite = () => {
   const experienceRef = useRef(null);
   const awardsRef = useRef(null);
   const contactRef = useRef(null);
-  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +22,7 @@ const PontesTurSite = () => {
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({
       behavior: 'smooth',
-      block: 'start',
+      block: 'start'
     });
   };
 
@@ -31,13 +30,13 @@ const PontesTurSite = () => {
     { name: 'Início', ref: heroRef },
     { name: 'Experiência', ref: experienceRef },
     { name: 'Prêmios', ref: awardsRef },
-    { name: 'Contato', ref: contactRef },
+    { name: 'Contato', ref: contactRef }
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-green-50">
       {/* Header com navegação de scroll suave */}
-      <header 
+      <header
         className={`fixed w-full z-50 transition-all duration-300 ${
           isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
         }`}
@@ -47,7 +46,7 @@ const PontesTurSite = () => {
             <div className="text-3xl font-bold text-green-700">PontesTur</div>
             <nav className="hidden md:flex space-x-6">
               {navItems.map((item) => (
-                <button 
+                <button
                   key={item.name}
                   className="text-gray-600 hover:text-green-700 transition-colors"
                   onClick={() => scrollToSection(item.ref)}
@@ -70,13 +69,13 @@ const PontesTurSite = () => {
             Transformando sonhos em jornadas inesquecíveis desde 1986
           </p>
           <div className="flex justify-center gap-4">
-            <button 
+            <button
               onClick={() => scrollToSection(experienceRef)}
               className="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors"
             >
               Conheça Nossa História
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection(contactRef)}
               className="border border-green-600 text-green-600 px-8 py-3 rounded-full hover:bg-green-50 transition-colors"
             >
@@ -97,24 +96,25 @@ const PontesTurSite = () => {
               {
                 title: 'Pacotes Personalizados',
                 icon: <MapPin className="w-12 h-12 text-green-600" />,
-                description: 'Mais de 10.000 roteiros customizados criados para nossos clientes'
+                description:
+                  'Mais de 10.000 roteiros customizados criados para nossos clientes'
               },
               {
                 title: 'Atendimento Premium',
                 icon: <Phone className="w-12 h-12 text-green-600" />,
-                description: 'Suporte 24/7 em múltiplos idiomas para todos os nossos viajantes'
+                description:
+                  'Suporte 24/7 em múltiplos idiomas para todos os nossos viajantes'
               },
               {
                 title: 'Rede Global',
                 icon: <Star className="w-12 h-12 text-green-600" />,
-                description: 'Parcerias com as principais redes hoteleiras e companhias aéreas'
+                description:
+                  'Parcerias com as principais redes hoteleiras e companhias aéreas'
               }
             ].map((item, index) => (
               <Card key={index} className="hover:shadow-xl transition-shadow">
                 <CardContent className="p-6 text-center">
-                  <div className="flex justify-center mb-4">
-                    {item.icon}
-                  </div>
+                  <div className="flex justify-center mb-4">{item.icon}</div>
                   <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                   <p className="text-gray-600">{item.description}</p>
                 </CardContent>
@@ -158,8 +158,12 @@ const PontesTurSite = () => {
                   <div className="flex items-start gap-4">
                     <Award className="w-12 h-12 text-green-600 flex-shrink-0" />
                     <div>
-                      <div className="text-sm text-green-600 font-semibold">{award.year}</div>
-                      <h3 className="text-xl font-semibold mb-2">{award.title}</h3>
+                      <div className="text-sm text-green-600 font-semibold">
+                        {award.year}
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">
+                        {award.title}
+                      </h3>
                       <p className="text-gray-600">{award.organization}</p>
                     </div>
                   </div>
@@ -177,7 +181,7 @@ const PontesTurSite = () => {
             Entre em Contato
           </h2>
           <ContactForm />
-          </div>
+        </div>
       </section>
 
       {/* Footer */}
@@ -208,7 +212,9 @@ const PontesTurSite = () => {
               </div>
             </div>
             <div>
-              <h4 className="text-xl font-semibold mb-4">Horário de Atendimento</h4>
+              <h4 className="text-xl font-semibold mb-4">
+                Horário de Atendimento
+              </h4>
               <div className="space-y-2">
                 <p className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />

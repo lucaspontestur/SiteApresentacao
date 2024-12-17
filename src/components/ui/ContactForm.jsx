@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { Card, CardContent } from "./card";
+import { Card, CardContent } from './card';
 import { Loader2 } from 'lucide-react';
 
 const ContactForm = () => {
@@ -17,7 +17,7 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value
     }));
@@ -35,24 +35,24 @@ const ContactForm = () => {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_name: 'PontesTur',
+          to_name: 'PontesTur'
         },
         'AKlqBNUsagBezz8pn'
       );
 
       setStatus({ loading: false, error: null, success: true });
       setFormData({ name: '', email: '', message: '' });
-      
+
       setTimeout(() => {
-        setStatus(prev => ({ ...prev, success: false }));
+        setStatus((prev) => ({ ...prev, success: false }));
       }, 5000);
 
-    // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
-      setStatus({ 
-        loading: false, 
-        error: 'Ocorreu um erro ao enviar sua mensagem. Tente novamente.', 
-        success: false 
+      setStatus({
+        loading: false,
+        error: 'Ocorreu um erro ao enviar sua mensagem. Tente novamente.',
+        success: false
       });
     }
   };
@@ -90,8 +90,8 @@ const ContactForm = () => {
             rows={6}
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500"
           />
-          
-          <button 
+
+          <button
             type="submit"
             disabled={status.loading}
             className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors disabled:bg-green-400 disabled:cursor-not-allowed flex items-center justify-center"
@@ -101,15 +101,19 @@ const ContactForm = () => {
                 <Loader2 className="animate-spin mr-2" />
                 Enviando...
               </>
-            ) : 'Enviar Mensagem'}
+            ) : (
+              'Enviar Mensagem'
+            )}
           </button>
 
           {status.error && (
             <p className="text-red-500 text-center">{status.error}</p>
           )}
-          
+
           {status.success && (
-            <p className="text-green-500 text-center">Mensagem enviada com sucesso!</p>
+            <p className="text-green-500 text-center">
+              Mensagem enviada com sucesso!
+            </p>
           )}
         </form>
       </CardContent>
