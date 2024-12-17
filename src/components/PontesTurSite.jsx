@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Award, Star, MapPin, Phone, Mail, Calendar } from 'lucide-react';
-import { Card, CardContent } from "./ui/card"; // Note que mudei o caminho do import
+import ContactForm from './ui/ContactForm';
+import { Card, CardContent } from "./ui/card";
 const PontesTurSite = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -9,6 +10,7 @@ const PontesTurSite = () => {
   const experienceRef = useRef(null);
   const awardsRef = useRef(null);
   const contactRef = useRef(null);
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -174,33 +176,8 @@ const PontesTurSite = () => {
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
             Entre em Contato
           </h2>
-          <Card className="max-w-3xl mx-auto">
-            <CardContent className="p-6">
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    placeholder="Nome"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500"
-                  />
-                </div>
-                <textarea
-                  placeholder="Mensagem"
-                  rows={6}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500"
-                />
-                <button className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors">
-                  Enviar Mensagem
-                </button>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
+          <ContactForm />
+          </div>
       </section>
 
       {/* Footer */}
