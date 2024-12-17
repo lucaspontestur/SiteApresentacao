@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
+import ContactFormSection from './ContactFormSection';
 import { 
   Code, GraduationCap, Award, Mail, Phone, MapPin, 
   Github, Linkedin, Terminal, Gamepad, Brain,
@@ -125,7 +126,7 @@ const LucasMarinho = ({ language, setLanguage }) => {
           </h1>
           <div className="max-w-3xl mx-auto mb-8">
           <p className="text-xl text-gray-600 mb-6">
-          Olá, tudo bem? Seja bem-vindo ao meu site de currí.
+          Olá, tudo bem? Seja bem-vindo ao meu site de portfólio.
         </p>
         <p className="text-lg text-gray-600 mb-8">
           Meu nome é Lucas Marinho Rodrigues, sou Desenvolvedor Full Stack e este site foi criado por mim, utilizando ReactJS. Aqui você poderá conhecer mais sobre minha experiência, Qualificações e habilidades técnicas.
@@ -429,9 +430,7 @@ const LucasMarinho = ({ language, setLanguage }) => {
         className="py-20 bg-white/50 backdrop-blur-md"
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-emerald-600 to-teal-600 text-transparent bg-clip-text">
-            Vamos Conversar?
-          </h2>
+        <ContactFormSection />
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <Card className="hover:shadow-xl transition-all duration-300">
