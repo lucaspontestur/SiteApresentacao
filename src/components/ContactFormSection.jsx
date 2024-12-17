@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Loader2 } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
+import emailjs from '@emailjs/browser';
 
 const ContactFormSection = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +20,18 @@ const ContactFormSection = () => {
     setStatus({ loading: true, error: null, success: false });
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await emailjs.send(
+        'service_ymkf4xp',
+        'template_pr4m0rf',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Lucas Marinho',
+        },
+        'AKlqBNUsagBezz8pn'
+      );
+
       setStatus({ loading: false, error: null, success: true });
       setFormData({ name: '', email: '', message: '' });
       

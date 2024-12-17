@@ -126,10 +126,10 @@ const LucasMarinho = ({ language, setLanguage }) => {
           </h1>
           <div className="max-w-3xl mx-auto mb-8">
           <p className="text-xl text-gray-600 mb-6">
-          Olá, tudo bem? Seja bem-vindo ao meu site de portfólio.
+          Meu nome é Lucas Marinho Rodrigues e criei este site utilizando ReactJS.
         </p>
         <p className="text-lg text-gray-600 mb-8">
-          Meu nome é Lucas Marinho Rodrigues, sou Desenvolvedor Full Stack e este site foi criado por mim, utilizando ReactJS. Aqui você poderá conhecer mais sobre minha experiência, Qualificações e habilidades técnicas.
+          Possuo 2 anos de experiência, inglês avançado e outras qualificações. Estou aberto a novas oportunidades.
         </p>
 
           </div>
