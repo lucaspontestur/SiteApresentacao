@@ -2,7 +2,8 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { 
   Code, GraduationCap, Award, Mail, Phone, MapPin, 
   Github, Linkedin, Terminal, Gamepad, Brain,
-  Monitor, Database, Rocket, Wrench, Briefcase, Users
+  Monitor, Database, Rocket, Wrench, Briefcase, Users,
+  FileDown
 } from 'lucide-react';
 import { Card, CardContent } from "./ui/card";
 
@@ -139,6 +140,15 @@ const LucasMarinho = () => {
                 {social.label}
               </a>
             ))}
+            <a
+              href="/Currículo Lucas Marinho.pdf"
+              download
+              className="flex items-center gap-2 px-6 py-3 rounded-full text-white transition-all
+                bg-gradient-to-r from-pink-600 to-purple-600 hover:scale-105"
+            >
+              <FileDown size={20} />
+              Currículo
+            </a>
           </div>
         </div>
       </section>
@@ -321,7 +331,7 @@ const LucasMarinho = () => {
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div>
-                  <GraduationCap className="w-12 h-12 text-indigo-600" />
+                    <GraduationCap className="w-12 h-12 text-indigo-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold">Ciências da Computação</h3>
@@ -445,57 +455,6 @@ const LucasMarinho = () => {
                 </CardContent>
               </Card>
             </div>
-
-            {/*
-            <Card className="hover:shadow-xl transition-all duration-300">
-              <CardContent className="p-6">
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Nome
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
-                        placeholder="Seu nome"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
-                        placeholder="seu@email.com"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Mensagem
-                    </label>
-                    <textarea
-                      rows={6}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
-                      placeholder="Sua mensagem..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full py-3 px-6 text-white font-medium rounded-lg
-                      bg-gradient-to-r from-indigo-600 to-purple-600
-                      hover:from-indigo-700 hover:to-purple-700
-                      transform transition-all duration-300 hover:scale-[1.02]"
-                  >
-                    Enviar Mensagem
-                  </button>
-                </form>
-              </CardContent>
-            </Card>
-            */}
-
           </div>
         </div>
       </section>
@@ -542,4 +501,4 @@ const LucasMarinho = () => {
   );
 };
 
-export default LucasMarinho;  
+export default LucasMarinho;
