@@ -195,15 +195,15 @@ const PontesTurSite = () => {
               <div className="space-y-2">
                 <p className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <span>(11) 1234-5678</span>
+                  <span>(81) 3302-4555</span>
                 </p>
                 <p className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <span>contato@pontestur.com.br</span>
+                  <span>atendimento@pontestur.com.br</span>
                 </p>
                 <p className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
-                  <span>São Paulo, SP</span>
+                  <span>Recife, PE</span>
                 </p>
               </div>
             </div>
@@ -212,11 +212,11 @@ const PontesTurSite = () => {
               <div className="space-y-2">
                 <p className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  <span>Segunda a Sexta: 9h às 18h</span>
+                  <span>Segunda a Sexta: 8h às 18h</span>
                 </p>
                 <p className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  <span>Sábado: 9h às 13h</span>
+                  <span>Sábado e Domingo: 9h às 13h</span>
                 </p>
               </div>
             </div>
