@@ -2,18 +2,28 @@ import { useState } from 'react';
 import { Mail, Loader2 } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import emailjs from '@emailjs/browser';
+import PropTypes from 'prop-types';
 
-const ContactFormSection = () => {
+const ContactFormSection = ({ language }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
+  ContactFormSection.propTypes = {
+    language: PropTypes.string.isRequired
+  };
+
   const [status, setStatus] = useState({
     loading: false,
     error: null,
     success: false
   });
+
+  const titles = {
+    pt: "Entre em Contato:",
+    en: "Get in Touch:"
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,7 +70,7 @@ const ContactFormSection = () => {
     <section className="py-20 bg-white/50 backdrop-blur-md">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-emerald-600 to-cyan-600 text-transparent bg-clip-text">
-          Entre em Contato:
+          {titles[language]}
         </h2>
         
         <Card className="max-w-3xl mx-auto">

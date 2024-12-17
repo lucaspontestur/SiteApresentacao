@@ -1,38 +1,47 @@
 Estrutura de diretórios:
-- .gitignore                    # Arquivo que lista quais arquivos o Git deve ignorar
-+ .venv                        # Pasta do ambiente virtual Python
-    - .gitignore              # Configurações específicas de ignore para o ambiente virtual
-    + Include                 # Cabeçalhos C para extensões Python
-    + Lib                     # Bibliotecas Python instaladas
-        + site-packages       # Pacotes Python instalados via pip
-            + pip            # Gerenciador de pacotes Python
-                - __init__.py            # Arquivo de inicialização do módulo pip
-                - __main__.py            # Ponto de entrada principal do pip
-                - __pip-runner__.py      # Script para execução do pip
-- README.md                    # Documentação principal do projeto
-- arvore.py                   # Script que gerou esta estrutura de arquivos
-- arvore.txt                  # Este arquivo - mapa da estrutura do projeto
-- components.json             # Configuração dos componentes shadcn/ui
-- eslint.config.js           # Configuração do linter ESLint
-- index.html                 # Página HTML principal da aplicação
-- jsconfig.json              # Configuração do JavaScript/TypeScript
-- package-lock.json          # Versões exatas das dependências npm
-- package.json               # Configuração do projeto e dependências
-- postcss.config.js         # Configuração do PostCSS (processador CSS)
-+ public                    # Arquivos estáticos públicos
-    - vite.svg             # Logo do Vite usado como favicon
-+ src                      # Código fonte principal da aplicação
-    - App.css              # Estilos específicos do componente App
-    - App.jsx              # Componente React principal
-    + assets              # Recursos estáticos da aplicação
-        - react.svg       # Logo do React
-    + components          # Componentes React reutilizáveis
-        - LucasMarinho.jsx  # Componente principal do site da LucasMarinho
-        + ui               # Componentes de interface do usuário
-            - card.tsx    # Componente de card do shadcn/ui
-    - index.css          # Estilos globais da aplicação
-    + lib                # Bibliotecas e utilitários
-        - utils.ts       # Funções utilitárias
-    - main.jsx          # Ponto de entrada da aplicação React
-- tailwind.config.js    # Configuração do Tailwind CSS
-- vite.config.js        # Configuração do Vite (bundler)
+- .gitignore
++ .venv
+    - .gitignore
+    + Include
+    + Lib
+        + site-packages
+            + pip
+                - __init__.py
+                - __main__.py
+                - __pip-runner__.py
+- README.md
+- arvore.txt
+- components.json
++ dist
+    + assets
+        - index-CiYMAHF2.css
+        - index-D4cOX1Pk.js
+    - index.html
+    - vite.svg
+- eslint.config.js
+- index.html
+- jsconfig.json
+- package-lock.json
+- package.json
+- postcss.config.js
++ public
+    - code.svg
+    - vite.svg
+- settings.json
++ src
+    - App.css
+    - App.jsx
+    + assets
+        - react.svg
+    + components
+        - ContactFormSection.jsx
+        - LucasMarinho.jsx
+        - LucasMarinhoIng.jsx
+        + ui
+            - card.tsx
+    - index.css
+    + lib
+        - utils.ts
+    - main.jsx
+- tailwind.config.js
+- vite.config.js

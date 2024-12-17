@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
+import ContactFormSection from './ContactFormSection';
 import { 
   Code, GraduationCap, Award, Mail, Phone, MapPin, 
   Github, Linkedin, Terminal, Gamepad, Brain,
@@ -127,10 +128,10 @@ const LucasMarinhoIng = ({ language, setLanguage }) => {
           </h1>
           <div className="max-w-3xl mx-auto mb-8">
             <p className="text-xl text-gray-600 mb-6">
-              Hello, how are you? Welcome to my portfolio website.
+              My name is Lucas Marinho Rodrigues and I created this website using ReactJS.
             </p>
             <p className="text-lg text-gray-600 mb-8">
-              My name is Lucas Marinho Rodrigues, Im a Full Stack Developer and this website was created by me using ReactJS. Here you can learn more about my experience, qualifications, and technical skills.
+            I have 2 years of experience, advanced English and other qualifications. I am open to new opportunities.
             </p>
           </div>
           <div className="flex justify-center gap-4">
@@ -430,9 +431,7 @@ const LucasMarinhoIng = ({ language, setLanguage }) => {
         className="py-20 bg-white/50 backdrop-blur-md"
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-emerald-600 to-teal-600 text-transparent bg-clip-text">
-            Lets Talk?
-          </h2>
+        <ContactFormSection language="en" />
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <Card className="hover:shadow-xl transition-all duration-300">

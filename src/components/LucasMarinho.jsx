@@ -430,7 +430,7 @@ const LucasMarinho = ({ language, setLanguage }) => {
         className="py-20 bg-white/50 backdrop-blur-md"
       >
         <div className="container mx-auto px-4">
-        <ContactFormSection />
+        <ContactFormSection language="pt" />
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <Card className="hover:shadow-xl transition-all duration-300">
