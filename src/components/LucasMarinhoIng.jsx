@@ -3,16 +3,17 @@ import {
   Code, GraduationCap, Award, Mail, Phone, MapPin, 
   Github, Linkedin, Terminal, Gamepad, Brain,
   Monitor, Database, Rocket, Wrench, Briefcase, Users,
-  FileDown, Globe 
+  FileDown, Globe
 } from 'lucide-react';
 import { Card, CardContent } from "./ui/card";
 import PropTypes from 'prop-types';
 
-const LucasMarinho = ({ language, setLanguage }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeTab, setActiveTab] = useState('about');
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const [activeStack, setActiveStack] = useState('front');
+// eslint-disable-next-line no-unused-vars
+const LucasMarinhoIng = ({ language, setLanguage }) => {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [activeTab, setActiveTab] = useState('about');
+    const [hoveredCard, setHoveredCard] = useState(null);
+    const [activeStack, setActiveStack] = useState('front');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,19 +41,18 @@ const LucasMarinho = ({ language, setLanguage }) => {
     contact: contactRef
   }), []);
 
-
   const scrollToSection = (key) => {
     sectionRefs[key].current?.scrollIntoView({ behavior: 'smooth' });
     setActiveTab(key);
   };
 
   const navItems = [
-    { key: 'hero', label: 'Sobre', icon: Brain },
+    { key: 'hero', label: 'About me', icon: Brain },
     { key: 'stack', label: 'Stack', icon: Terminal },
-    { key: 'projects', label: 'Qualificações', icon: Rocket },
-    { key: 'experience', label: 'Experiência', icon: Briefcase },
-    { key: 'education', label: 'Formação', icon: GraduationCap },
-    { key: 'contact', label: 'Contato', icon: Mail }
+    { key: 'projects', label: 'Skills', icon: Rocket },
+    { key: 'experience', label: 'Experience', icon: Briefcase },
+    { key: 'education', label: 'Education', icon: GraduationCap },
+    { key: 'contact', label: 'Contact', icon: Mail }
   ];
 
   const stackCategories = {
@@ -67,49 +67,51 @@ const LucasMarinho = ({ language, setLanguage }) => {
       techs: ['Python', 'Golang', 'Node.js', 'APIs']
     },
     tools: {
-      title: 'Ferramentas',
+      title: 'Tools',
       icon: Wrench,
       techs: ['Git', 'Docker', 'AWS', 'Linux', 'SCRUM']
     }
   };
 
-    return (
+  return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+      {/* Header */}
       <header className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-md ${
         isScrolled ? 'bg-white/80 shadow-lg' : 'bg-transparent'
-      }`}>
+        }`}>
         <nav className="container mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-              Lucas Marinho Rodrigues
+            Lucas Marinho Rodrigues
             </h1>
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => setLanguage(language === 'pt' ? 'en' : 'pt')}
+            <button
+                onClick={() => setLanguage('pt')}
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 text-indigo-600 hover:bg-indigo-200 transition-all"
-              >
+            >
                 <Globe size={18} />
-                {language === 'pt' ? 'Português' : 'English'}
-              </button>
-              <div className="hidden md:flex gap-6">
+                English
+            </button>
+            <div className="hidden md:flex gap-6">
                 {navItems.map(({ key, label, icon: Icon }) => (
-                  <button
+                <button
                     key={key}
                     onClick={() => scrollToSection(key)}
                     className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all
-                      ${activeTab === key 
+                    ${activeTab === key 
                         ? 'bg-indigo-100 text-indigo-600' 
                         : 'hover:bg-indigo-50 text-gray-600'}`}
-                  >
+                >
                     <Icon size={18} />
                     {label}
-                  </button>
+                </button>
                 ))}
-              </div>
             </div>
-          </div>
+            </div>
+        </div>
         </nav>
-      </header>                  
+        </header>
+
       {/* Hero */}
       <section 
         ref={sectionRefs.hero}
@@ -121,16 +123,15 @@ const LucasMarinho = ({ language, setLanguage }) => {
       >
         <div className="text-center">
           <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-transparent bg-clip-text">
-            Desenvolvedor Full Stack
+            Full Stack Developer
           </h1>
           <div className="max-w-3xl mx-auto mb-8">
-          <p className="text-xl text-gray-600 mb-6">
-          Olá, tudo bem? Seja bem-vindo ao meu site de portfólio.
-        </p>
-        <p className="text-lg text-gray-600 mb-8">
-          Meu nome é Lucas Marinho Rodrigues, sou Desenvolvedor Full Stack e este site foi criado por mim, utilizando ReactJS. Aqui você poderá conhecer mais sobre minha experiência, Qualificações e habilidades técnicas.
-        </p>
-
+            <p className="text-xl text-gray-600 mb-6">
+              Hello, how are you? Welcome to my portfolio website.
+            </p>
+            <p className="text-lg text-gray-600 mb-8">
+              My name is Lucas Marinho Rodrigues, Im a Full Stack Developer and this website was created by me using ReactJS. Here you can learn more about my experience, qualifications, and technical skills.
+            </p>
           </div>
           <div className="flex justify-center gap-4">
             {[
@@ -150,13 +151,13 @@ const LucasMarinho = ({ language, setLanguage }) => {
               </a>
             ))}
             <a
-              href="/Currículo Lucas Marinho.pdf"
+              href="/Professional Resume Lucas Marinho.pdf"
               download
               className="flex items-center gap-2 px-6 py-3 rounded-full text-white transition-all
                 bg-gradient-to-r from-pink-600 to-purple-600 hover:scale-105"
             >
               <FileDown size={20} />
-              Currículo
+              Resume
             </a>
           </div>
         </div>
@@ -170,7 +171,7 @@ const LucasMarinho = ({ language, setLanguage }) => {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-            Stack Tecnológico
+            Technology Stack
           </h2>
           <div className="flex justify-center gap-4 mb-12">
             {Object.entries(stackCategories).map(([key, { title, icon: Icon }]) => (
@@ -213,26 +214,26 @@ const LucasMarinho = ({ language, setLanguage }) => {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-            Qualificações em Destaque
+            Featured Skills
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 title: 'Backend',
-                description: 'Desenvolvimento de automações, integrações com APIs e Bancos de Dados',
+                description: 'Development of automations, API integrations, and Databases',
                 tech: ['Python', "Node.js", "APIs", "SQL", 'Webhook', 'Selenium'],
                 icon: Database
               },
               {
-                title: 'Inteligência Artificial',
-                description: 'Estudo e desenvolvimento de inteligência artificial e Chatbots para atendimento',
+                title: 'Artificial Intelligence',
+                description: 'Study and development of artificial intelligence and chatbots for customer service',
                 tech: ['DialogFlow', 'APIs', 'Gemini'],
                 icon: Brain
               },
               {
                 title: 'Frontend',
-                description: 'Desenvolvimento de interfaces modernas e responsivas',
-                tech: ['Javascript', 'React', 'Vue.js', 'HTML e Css', 'Typescript'],
+                description: 'Development of modern and responsive interfaces',
+                tech: ['Javascript', 'React', 'Vue.js', 'HTML and CSS', 'Typescript'],
                 icon: Code
               }
             ].map((project, index) => (
@@ -269,30 +270,30 @@ const LucasMarinho = ({ language, setLanguage }) => {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-            Experiência Profissional
+            Professional Experience
           </h2>
           <div className="max-w-4xl mx-auto">
             {[
               {
                 company: "PontesTur",
-                role: "Estagiário em Inovação",
+                role: "Innovation Intern",
                 period: "2024",
-                description: "Desenvolvimento de soluções inovadoras usando Python e automações",
+                description: "Development of innovative solutions using Python and automation",
                 tech: ["Python", "APIs", "Webhook", "SQL Server"]
               },
               {
                 company: "Encora",
-                role: "Estagiário em Desenvolvimento",
+                role: "Development Intern",
                 period: "2021 - 2023",
-                description: "Desenvolvimento full stack com foco em aplicações web modernas",
+                description: "Full stack development focused on modern web applications",
                 tech: ["React", "Golang", "AWS", "SCRUM"]
               },
               {
                 company: "Intelligence",
                 role: "Freelancer",
                 period: "2018 - 2019",
-                description: "Desenvolvimento de chatbots inteligentes para atendimento",
-                tech: ["DialogFlow", "IA"]
+                description: "Development of intelligent chatbots for customer service",
+                tech: ["DialogFlow", "AI"]
               }
             ].map((job, index) => (
               <Card
@@ -325,15 +326,15 @@ const LucasMarinho = ({ language, setLanguage }) => {
         </div>
       </section>
 
-      {/* Education Section */}
-      <section
+{/* Education Section */}
+<section
         ref={sectionRefs.education}
         id="education"
         className="py-20"
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-            Formação Acadêmica
+            Academic Education
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="hover:shadow-xl transition-all duration-300">
@@ -343,9 +344,9 @@ const LucasMarinho = ({ language, setLanguage }) => {
                     <GraduationCap className="w-12 h-12 text-indigo-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold">Ciências da Computação</h3>
+                    <h3 className="text-xl font-semibold">Computer Science</h3>
                     <p className="text-indigo-600 font-medium">UniFBV</p>
-                    <p className="text-gray-600">Bacharelado Completo</p>
+                    <p className="text-gray-600">Bachelors Degree Complete</p>
                   </div>
                 </div>
               </CardContent>
@@ -357,45 +358,45 @@ const LucasMarinho = ({ language, setLanguage }) => {
                     <Award className="w-12 h-12 text-indigo-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold">Gestão em Tecnologia</h3>
+                    <h3 className="text-xl font-semibold">Technology Management</h3>
                     <p className="text-indigo-600 font-medium">Faculdade Iguaçu</p>
-                    <p className="text-gray-600">Pós-Graduação em andamento</p>
+                    <p className="text-gray-600">Postgraduate in progress</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-          {/* Cursos e Certificações */}
+          {/* Courses and Certifications */}
           <div className="mt-12 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-center mb-8 text-gray-800">
-              Cursos e Certificações
+              Courses and Certifications
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 {
                   title: 'SAGA START',
-                  description: 'Computação gráfica e design digital',
+                  description: 'Computer graphics and digital design',
                   icon: Monitor
                 },
                 {
                   title: 'CALARTS',
-                  description: 'Desenvolvimento de História e Narrativa para Videogames',
+                  description: 'Story and Narrative Development for Video Games',
                   icon: Gamepad
                 },
                 {
                   title: 'DL Jovem',
-                  description: 'Desenvolvimento e Liderança para Jovens',
+                  description: 'Youth Development and Leadership',
                   icon: Users
                 },
                 {
                   title: 'Alura',
-                  description: 'Imersão em Inteligência Artificial',
+                  description: 'Artificial Intelligence Immersion',
                   icon: Brain
                 },
                 {
                   title: 'Udemy',
-                  description: 'Golang, CSS, HTML, JavaScript e Linux',
+                  description: 'Golang, CSS, HTML, JavaScript and Linux',
                   icon: Code
                 }
               ].map((course, index) => (
@@ -430,7 +431,7 @@ const LucasMarinho = ({ language, setLanguage }) => {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-            Vamos Conversar?
+            Lets Talk?
           </h2>
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -453,12 +454,12 @@ const LucasMarinho = ({ language, setLanguage }) => {
                 <CardContent className="p-6">
                   <div className="text-center">
                     <Phone className="w-12 h-12 text-indigo-600 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">Telefone</h3>
+                    <h3 className="text-xl font-semibold mb-2">Phone</h3>
                     <a 
                       href="tel:+5581998578090"
                       className="text-indigo-600 hover:text-indigo-700 transition-colors"
                     >
-                      (81) 99857-8090
+                      +55 (81) 99857-8090
                     </a>
                   </div>
                 </CardContent>
@@ -475,7 +476,7 @@ const LucasMarinho = ({ language, setLanguage }) => {
             <div>
               <h3 className="text-2xl font-bold mb-4">Lucas Marinho Rodrigues</h3>
               <p className="text-gray-400">
-                Desenvolvedor Full Stack.
+                Full Stack Developer
               </p>
             </div>
             <div>
@@ -492,16 +493,16 @@ const LucasMarinho = ({ language, setLanguage }) => {
               </div>
             </div>
             <div>
-              <h4 className="text-xl font-semibold mb-4">Localização</h4>
+              <h4 className="text-xl font-semibold mb-4">Location</h4>
               <p className="flex items-center gap-2 text-gray-400">
                 <MapPin size={18} />
-                Recife, PE - Brasil
+                Recife, PE - Brazil
               </p>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
             <p className="text-gray-400">
-              Feito por Lucas Marinho Rodrigues
+              Made by Lucas Marinho Rodrigues
             </p>
           </div>
         </div>
@@ -510,9 +511,9 @@ const LucasMarinho = ({ language, setLanguage }) => {
   );
 };
 
-LucasMarinho.propTypes = {
-  language: PropTypes.string.isRequired,
-  setLanguage: PropTypes.func.isRequired
-};
-
-export default LucasMarinho;
+LucasMarinhoIng.propTypes = {
+    language: PropTypes.string.isRequired,
+    setLanguage: PropTypes.func.isRequired
+  };
+  
+  export default LucasMarinhoIng;
