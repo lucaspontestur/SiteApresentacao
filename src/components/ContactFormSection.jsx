@@ -1,29 +1,45 @@
 import { useState } from 'react';
 import { Mail, Loader2 } from 'lucide-react';
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from '@/components/ui/card';
 import emailjs from '@emailjs/browser';
 import PropTypes from 'prop-types';
+
+const translations = {
+  pt: {
+    title: 'Entre em Contato:',
+    name: 'Nome',
+    email: 'Email',
+    message: 'Mensagem',
+    sendButton: 'Enviar Mensagem',
+    sending: 'Enviando...',
+    error: 'Erro ao enviar mensagem. Tente novamente.',
+    success: 'Mensagem enviada com sucesso!',
+  },
+  en: {
+    title: 'Get in Touch:',
+    name: 'Name',
+    email: 'Email',
+    message: 'Message',
+    sendButton: 'Send Message',
+    sending: 'Sending...',
+    error: 'Error sending message. Please try again.',
+    success: 'Message sent successfully!',
+  },
+};
 
 const ContactFormSection = ({ language }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
-  ContactFormSection.propTypes = {
-    language: PropTypes.string.isRequired
-  };
-
   const [status, setStatus] = useState({
     loading: false,
     error: null,
-    success: false
+    success: false,
   });
 
-  const titles = {
-    pt: "Entre em Contato:",
-    en: "Get in Touch:"
-  };
+  const t = translations[language];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,30 +55,29 @@ const ContactFormSection = ({ language }) => {
           message: formData.message,
           to_name: 'Lucas Marinho',
         },
-        'AKlqBNUsagBezz8pn'
+        'AKlqBNUsagBezz8pn',
       );
 
       setStatus({ loading: false, error: null, success: true });
       setFormData({ name: '', email: '', message: '' });
-      
+
       setTimeout(() => {
-        setStatus(prev => ({ ...prev, success: false }));
+        setStatus((prev) => ({ ...prev, success: false }));
       }, 3000);
-      
-    // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
-      setStatus({ 
-        loading: false, 
-        error: 'Erro ao enviar mensagem. Tente novamente.', 
-        success: false 
+      setStatus({
+        loading: false,
+        error: t.error,
+        success: false,
       });
     }
   };
 
   const handleChange = (e) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -70,9 +85,9 @@ const ContactFormSection = ({ language }) => {
     <section className="py-20 bg-white/50 backdrop-blur-md">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-emerald-600 to-cyan-600 text-transparent bg-clip-text">
-          {titles[language]}
+          {t.title}
         </h2>
-        
+
         <Card className="max-w-3xl mx-auto">
           <CardContent className="p-6">
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -82,7 +97,7 @@ const ContactFormSection = ({ language }) => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Nome"
+                  placeholder={t.name}
                   required
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 />
@@ -91,23 +106,23 @@ const ContactFormSection = ({ language }) => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Email"
+                  placeholder={t.email}
                   required
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 />
               </div>
-              
+
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Mensagem"
+                placeholder={t.message}
                 required
                 rows={6}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
-              
-              <button 
+
+              <button
                 type="submit"
                 disabled={status.loading}
                 className="w-full bg-gradient-to-r from-emerald-600 to-cyan-600 text-white py-3 rounded-lg hover:opacity-90 transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
@@ -115,12 +130,12 @@ const ContactFormSection = ({ language }) => {
                 {status.loading ? (
                   <>
                     <Loader2 className="animate-spin mr-2" />
-                    Enviando...
+                    {t.sending}
                   </>
                 ) : (
                   <>
                     <Mail className="mr-2" />
-                    Enviar Mensagem
+                    {t.sendButton}
                   </>
                 )}
               </button>
@@ -128,9 +143,9 @@ const ContactFormSection = ({ language }) => {
               {status.error && (
                 <p className="text-red-500 text-center">{status.error}</p>
               )}
-              
+
               {status.success && (
-                <p className="text-green-500 text-center">Mensagem enviada com sucesso!</p>
+                <p className="text-green-500 text-center">{t.success}</p>
               )}
             </form>
           </CardContent>
@@ -138,6 +153,10 @@ const ContactFormSection = ({ language }) => {
       </div>
     </section>
   );
+};
+
+ContactFormSection.propTypes = {
+  language: PropTypes.string.isRequired,
 };
 
 export default ContactFormSection;
