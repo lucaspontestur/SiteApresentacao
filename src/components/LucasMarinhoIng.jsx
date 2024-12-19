@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
+import VideoModal from './VideoModal';
 import ContactFormSection from './ContactFormSection';
 import {
   Code,
@@ -48,6 +49,7 @@ const LucasMarinhoIng = ({ setLanguage }) => {
   const experienceRef = useRef(null);
   const educationRef = useRef(null);
   const contactRef = useRef(null);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const sectionRefs = useMemo(
     () => ({
@@ -93,6 +95,33 @@ const LucasMarinhoIng = ({ setLanguage }) => {
       techs: ['Git', 'Docker', 'AWS', 'Linux', 'SCRUM'],
     },
   };
+
+  const featuredProjects = [
+    {
+      id: 1,
+      title: 'Tourism Service AI',
+      description:
+        'Advanced artificial intelligence system developed to optimize customer service in the tourism sector. Using modern natural language processing and machine learning technologies, this solution offers accurate and personalized responses to customer needs 24/7.',
+      videoSrc: '/Video1.mp4',
+      thumbnail: '/thumbnail1.png',
+    },
+    {
+      id: 2,
+      title: 'Tourism Website',
+      description:
+        'Modern and responsive web platform for travel agencies, offering a unique browsing and booking experience. With an intuitive interface and attractive design, the site allows users to explore destinations, compare prices, and make reservations simply and efficiently.',
+      videoSrc: '/Video2.mp4',
+      thumbnail: '/thumbnail2.png',
+    },
+    {
+      id: 3,
+      title: 'Tourism ERP',
+      description:
+        'Integrated business management system specialized for the tourism sector. This complete solution enables efficient management of reservations, customers, suppliers, finances, and reports in a single platform, optimizing processes and increasing productivity.',
+      videoSrc: '/Video3.mp4',
+      thumbnail: '/thumbnail3.png',
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
@@ -335,6 +364,39 @@ const LucasMarinhoIng = ({ setLanguage }) => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="mt-20">
+            <h3 className="text-2xl font-bold text-center mb-12 text-gray-800">
+              Featured Projects
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {featuredProjects.map((project) => (
+                <Card
+                  key={project.id}
+                  className={`transform transition-all duration-300 cursor-pointer
+          ${hoveredCard === `featured-${project.id}` ? 'scale-105 shadow-xl' : 'hover:shadow-lg'}`}
+                  onMouseEnter={() => setHoveredCard(`featured-${project.id}`)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <CardContent className="p-6">
+                    <div className="aspect-video mb-4 bg-gray-200 rounded-lg overflow-hidden">
+                      <img
+                        src={project.thumbnail}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h4 className="text-xl font-semibold text-gray-800 mb-2">
+                      {project.title}
+                    </h4>
+                    <p className="text-gray-600 line-clamp-2">
+                      {project.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -599,6 +661,13 @@ const LucasMarinhoIng = ({ setLanguage }) => {
           </div>
         </div>
       </footer>
+      <VideoModal
+        isOpen={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
+        title={selectedProject?.title}
+        description={selectedProject?.description}
+        videoSrc={selectedProject?.videoSrc}
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import ContactFormSection from './ContactFormSection';
+import VideoModal from './VideoModal';
 import {
   Code,
   GraduationCap,
@@ -32,6 +33,7 @@ const LucasMarinho = ({ setLanguage }) => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [activeStack, setActiveStack] = useState('front');
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,6 +95,33 @@ const LucasMarinho = ({ setLanguage }) => {
       techs: ['Git', 'Docker', 'AWS', 'Linux', 'SCRUM'],
     },
   };
+
+  const featuredProjects = [
+    {
+      id: 1,
+      title: 'IA de atendimento em turismo',
+      description:
+        'Sistema avançado de inteligência artificial desenvolvido para otimizar o atendimento no setor de turismo. Utilizando tecnologias modernas de processamento de linguagem natural e aprendizado de máquina, esta solução oferece respostas precisas e personalizadas para as necessidades dos clientes 24/7.',
+      videoSrc: '/Video1.mp4',
+      thumbnail: '/thumbnail1.png',
+    },
+    {
+      id: 2,
+      title: 'Site de Turismo',
+      description:
+        'Plataforma web moderna e responsiva para agências de turismo, oferecendo uma experiência única de navegação e reserva. Com interface intuitiva e design atraente, o site permite aos usuários explorar destinos, comparar preços e fazer reservas de forma simples e eficiente.',
+      videoSrc: '/Video2.mp4',
+      thumbnail: '/thumbnail2.png',
+    },
+    {
+      id: 3,
+      title: 'ERP de Turismo',
+      description:
+        'Sistema integrado de gestão empresarial especializado para o setor de turismo. Esta solução completa permite o gerenciamento eficiente de reservas, clientes, fornecedores, financeiro e relatórios em uma única plataforma, otimizando processos e aumentando a produtividade.',
+      videoSrc: '/Video3.mp4',
+      thumbnail: '/thumbnail3.png',
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
@@ -336,6 +365,40 @@ const LucasMarinho = ({ setLanguage }) => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          <div className="mt-20">
+            <h3 className="text-2xl font-bold text-center mb-12 text-gray-800">
+              Projetos em Destaque
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {featuredProjects.map((project) => (
+                <Card
+                  key={project.id}
+                  className={`transform transition-all duration-300 cursor-pointer
+                    ${hoveredCard === `featured-${project.id}` ? 'scale-105 shadow-xl' : 'hover:shadow-lg'}`}
+                  onMouseEnter={() => setHoveredCard(`featured-${project.id}`)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <CardContent className="p-6">
+                    <div className="aspect-video mb-4 bg-gray-200 rounded-lg overflow-hidden">
+                      <img
+                        src={project.thumbnail}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h4 className="text-xl font-semibold text-gray-800 mb-2">
+                      {project.title}
+                    </h4>
+                    <p className="text-gray-600 line-clamp-2">
+                      {project.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -603,6 +666,14 @@ const LucasMarinho = ({ setLanguage }) => {
           </div>
         </div>
       </footer>
+
+      <VideoModal
+        isOpen={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
+        title={selectedProject?.title}
+        description={selectedProject?.description}
+        videoSrc={selectedProject?.videoSrc}
+      />
     </div>
   );
 };
